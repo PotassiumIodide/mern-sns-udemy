@@ -1,4 +1,5 @@
-import React from 'react'
+import { Chat, Notifications, Search } from '@mui/icons-material';
+import React from 'react';
 
 export default function Topbar() {
     return <div className="topbarContainer">
@@ -6,6 +7,7 @@ export default function Topbar() {
             <span className="logo">MERN SNS</span>
         </div>
         <div className="topbarCenter">
+            <Search className="searchIcon"/>
             <div className="serchbar">
                 <input
                   type="text"
@@ -15,8 +17,14 @@ export default function Topbar() {
             </div>
         </div>
         <div className="topbarRight">
-            <div className="topbarIconItem">1</div>
-            <div className="topbarIconItem">2</div>
+            <div className="topbarIconItem">
+                <Chat />
+                <span className="topbarIconBadge">1</span>
+            </div>
+            <div className="topbarIconItem">
+                <Notifications />
+                <span className="topbarIconBadge">2</span>
+            </div>
         </div>
         <img src="/assets/person/1.jpeg" alt="" className="topbarImg" />
     </div>
