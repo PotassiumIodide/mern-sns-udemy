@@ -1,0 +1,25 @@
+{
+  "name": "mern-sns-udemy",
+  "version": "1.0.0",
+  "description": "real-sns",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PotassiumIodide/mern-sns-udemy.git"
+  },
+  "author": "PotassiumIodide",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PotassiumIodide/mern-sns-udemy/issues"
+  },
+  "homepage": "https://github.com/PotassiumIodide/mern-sns-udemy#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.5.4",
+    "nodemon": "^2.0.19"
+  }
+}
