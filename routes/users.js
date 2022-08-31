@@ -69,7 +69,7 @@ router.put("/:id/follow", async (req, res) => {
       } else {
         return res.status(403).json("あなたはすでにこのユーザーをフォローしています。");
       }
-    } catch {
+    } catch (err) {
       return res.status(500).json(err);
     }
   } else {
@@ -100,7 +100,7 @@ router.put("/:id/unfollow", async (req, res) => {
       } else {
         return res.status(403).json("このユーザーはフォロー解除できません。");
       }
-    } catch {
+    } catch (err) {
       return res.status(500).json(err);
     }
   } else {
