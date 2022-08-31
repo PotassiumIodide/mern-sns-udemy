@@ -27,7 +27,7 @@ router.put("/:id", async (req, res) => {
   } catch (err) {
     return res.status(403).json(err);
   }
-})
+});
 
 // 投稿を削除する
 router.delete("/:id", async (req, res) => {
@@ -42,7 +42,7 @@ router.delete("/:id", async (req, res) => {
   } catch (err) {
     return res.status(403).json(err);
   }
-})
+});
 
 // 投稿を取得する
 router.get("/:id", async (req, res) => {
@@ -52,6 +52,34 @@ router.get("/:id", async (req, res) => {
   } catch (err) {
     return res.status(403).json(err);
   }
-})
+});
+
+// 特定の投稿にいいねを押す。
+router.put("/:id/like", async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    // まだ投稿にいいねが押されていなかったらいいねが押せる
+    if (!post.likes.includes(req.body.userId)) {
+      await post.updateOne({
+        $push: {
+          likes: req.body.userId,
+        },
+      });
+      return res.status(200).json("投稿にいいねを押しました！");
+      // 投稿にすでにいいねが押されていたら
+    } else {
+      // いいねしているユーザーIDを取り除く
+      await post.updateOne({
+        $pull: {
+          likes: req.body.userId,
+        },
+      });
+      return res.status(403).json("投稿のいいねを外しました");
+    }
+  } catch (err) {
+    return res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;
