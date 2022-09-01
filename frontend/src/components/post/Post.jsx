@@ -29,7 +29,7 @@ export default function Post({ post }) {
         <div className="postTop">
           <div className="postTopLeft">
             <img src={
-              user.profilePicture
+              user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
             } alt="" className="postProfileImg"
             />
             <span className="postUsername">
