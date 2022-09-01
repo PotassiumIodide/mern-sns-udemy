@@ -23,7 +23,7 @@ function Profile() {
               <span className="profileInfoDesc">Udemy講師をしています</span>
             </div>
             <div className="profileRightBottom">
-              <TimeLine />
+              <TimeLine username="PotassiumIodide" />
               <Rightbar profile />
             </div>
           </div>
