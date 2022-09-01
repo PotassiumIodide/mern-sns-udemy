@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import "./Post.css";
 import axios from "axios";
 import {format} from "timeago.js";
+import { Link } from 'react-router-dom';
 
 export default function Post({ post }) {
   const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER;
@@ -28,10 +29,12 @@ export default function Post({ post }) {
       <div className="postWrapper">
         <div className="postTop">
           <div className="postTopLeft">
-            <img src={
-              user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
-            } alt="" className="postProfileImg"
-            />
+            <Link to={`/profile/${user.username}`}>
+              <img src={
+                user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
+              } alt="" className="postProfileImg"
+              />
+            </Link>
             <span className="postUsername">
               {user.username}
             </span>
