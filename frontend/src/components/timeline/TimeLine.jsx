@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 import Post from '../post/Post';
 import Share from '../share/Share';
 import "./TimeLine.css";
-// import { Posts } from "../../dummyData";
 import axios from "axios";
 
 export default function TimeLine() {
@@ -14,7 +13,6 @@ export default function TimeLine() {
       const response = await axios.get(
         "/posts/timeline/630eddbf7a4a4691aa02e91c"
       );
-      // console.log(response);
       setPosts(response.data);
     };
     fetchPosts();
@@ -25,7 +23,7 @@ export default function TimeLine() {
       <div className="timelineWrapper">
         <Share />
         {posts.map((post) => (
-          <Post post={post} key={post.id} />
+          <Post post={post} key={post._id} />
         ))}
       </div>
     </div>
