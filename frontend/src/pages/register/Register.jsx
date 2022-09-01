@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React from 'react';
 import { useRef } from 'react';
 import "./Register.css";
@@ -8,8 +9,25 @@ function Register() {
   const password = useRef();
   const passwordConfirmation = useRef();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // パスワードと確認用のパスワードが合っているかどうかを確認
+    if(password.current.value !== passwordConfirmation.current.value) {
+      passwordConfirmation.current.setCustomValidity("パスワードが違います。");
+    } else {
+      try {
+        const user = {
+          username: username.current.value,
+          email: email.current.value,
+          password: password.current.value,
+        };
+        // registerApiを叩く
+        await axios.post("/auth/register", user);
+      } catch (err) {
+        console.log(err);
+      }
+    }
   };
   return (
     <div className="register">
@@ -26,12 +44,14 @@ function Register() {
               className="registerInput"
               placeholder="ユーザー名"
               required
+              ref={username}
             />
             <input
               type="email"
               className="registerInput"
               placeholder="Eメール"
               required
+              ref={email}
             />
             <input
               type="password"
@@ -39,6 +59,7 @@ function Register() {
               placeholder="パスワード"
               required
               minLength="6"
+              ref={password}
             />
             <input
               type="password"
@@ -46,6 +67,7 @@ function Register() {
               placeholder="確認用パスワード"
               required
               minLength="6"
+              ref={passwordConfirmation}
             />
             <button className="registerButton" type="submit">サインアップ</button>
             <button className="registerRegisterButton">ログイン</button>
