@@ -34,7 +34,7 @@ function Profile() {
                 user.coverPicture || PUBLIC_FOLDER + "/post/3.jpeg"
                 } alt="" className="profileCoverImg" />
               <img src={
-                user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
+                PUBLIC_FOLDER + user.profilePicture || PUBLIC_FOLDER + "/person/noAvatar.png"
               } alt="" className="profileUserImg" />
             </div>
             <div className="profileInfo">

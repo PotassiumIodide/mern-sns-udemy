@@ -9,7 +9,7 @@ const initialState = {
     username: "PotassiumIodide",
     email: "potassium.iodide28@gmail.com",
     password: "abcdef",
-    profilePicture: "",
+    profilePicture: "/person/1.jpeg",
     coverPicture: "",
     followers: [],
     followings: [],
