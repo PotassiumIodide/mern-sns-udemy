@@ -4,7 +4,17 @@ import AuthReducer from "./AuthReducer";
 
 // 最初のユーザー状態を定義
 const initialState = {
-  user: null,
+  user : {
+    _id: "631167043276c8d7404660d9",
+    username: "管理者くん",
+    email: "admin.kun@gmail.com",
+    password: "iamadmin",
+    profilePicture: "",
+    coverPicture: "",
+    followers: [],
+    followings: [],
+    isAdmin: false,    
+  },
   isFetching: false,
   error: false,
 };
